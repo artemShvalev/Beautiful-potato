@@ -3,7 +3,8 @@ module.exports = {
   darkMode: 'class',
   theme: {
     fontFamily: {
-      'nav': ['Cascadia Code']
+      'nav': ['Cascadia Code'],
+      'noTasks': ['Roboto']
     }
   },
   variants: {

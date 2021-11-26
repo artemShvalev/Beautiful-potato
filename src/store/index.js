@@ -7,32 +7,37 @@ export default createStore({
     }
   },
   mutations: {
-    createTasks(state, task) {
+    createTask(state, task) {
       state.tasks.push(task)
       localStorage.setItem('my-tasks', JSON.stringify(state.tasks))
+    },
+    changeTask(state, task) {
+      const idx = state.tasks.findIndex(t => t.id === task.id)
+      state.tasks[idx] = task
+      localStorage.setItem('my-tasks', JSON.stringify(state.tasks))
     }
-  },
-  actions: {
-    createTask({ commit }, task) {
-      if (task.setData < new Date()) {
-        task.status = 'cancelled'
+    },
+    actions: {
+      createTask({ commit }, task) {
+        if (task.setData < new Date()) {
+          task.status = 'cancelled'
+        }
+        console.log(task)
+        commit('createTask', task);
+      },
+      changeTask({ commit }, task) {
+        commit('changeTask', task);
       }
-      commit('createTask', task);
     },
-    changeTask({ commit }, task) {
-      commit('changeTask', task);
+    getters: {
+      activeTasksCount(state) {
+        return state.tasks.filter(t => t.status === 'Active').length
+      },
+      tasks(state) {
+        return state.tasks
+      },
+      taskById(_, getters) {
+        return id => getters.tasks.find(t => t.id === id)
+      }
     }
-  },
-  getters: {
-    activeTasksCount(state) {
-      return state.tasks.filter(t => t.status === 'active').length
-    },
-    tasks(state) {
-      return state.tasks
-    },
-    taskById(_, getters) {
-      return id => getters.tasks.find(t => t.id === id)
-    }
-    
-  }
-})
+  })

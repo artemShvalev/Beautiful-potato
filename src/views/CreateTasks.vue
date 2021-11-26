@@ -4,12 +4,12 @@
     <div class="mx-auto  sm:px-6 lg:px-8 mb-5">
         <div class="bg-white w-full shadow rounded p-8 sm:p-12 -mt-72">
             <p class="text-3xl font-bold leading-7 text-center">Create new Task</p>
-            <form>
+            <form @submit.prevent="submit">
                 <div class="md:flex items-center mt-12">
                     <div class="w-full flex flex-col">
                         <label class="font-nav leading-none">How u be name this task</label>
         
-                        <input type="text" v-model="nameTask" class="leading-none text-gray-900 p-3 focus:outline-none focus:border-green-300 mt-4 bg-white-100 border rounded border-gray-300" />
+                        <input type="text" v-model="title" class="leading-none text-gray-900 p-3 focus:outline-none focus:border-green-300 mt-4 bg-white-100 border rounded border-gray-300" />
                     </div>
                 </div>
                 <div class="md:flex items-center mt-8">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center w-full">
-                    <button @submit.prevent="createTasks"  :disabled="!isValid" class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-purple-500 rounded hover:bg-green-600 focus:ring-6 focus:ring-offset-2 focus:ring-white-700 focus:outline-none">
+                    <button  :disabled="!isValid" class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-purple-500 rounded hover:bg-green-600 focus:ring-6 focus:ring-offset-2 focus:ring-white-700 focus:outline-none">
                         Create!
                     </button>
                 </div>
@@ -46,34 +46,33 @@ export default{
     const store = useStore();
     const router = useRouter();  
 
-    const nameTask = ref('');
+    const title = ref('');
     const setData = ref(null);
     const description = ref('');
 
-    const  createTasks = () =>  {
-        const objNewTasks = {
-            nameTask: nameTask.value,
+    const  submit = () =>  {
+        const NewTask = {
+            title: title.value,
             setData: new Date(setData.value).setHours(23,59,59,999),
             description: description.value,
             id: Date.now().toString(),
-            status: 'active'
+            status: 'Active'
         }
-        store.dispatch('my-tasks', objNewTasks)
-        router.push('/'); 
+        store.dispatch('createTask', NewTask) // Здесь что то не так с мутацией она в actions;
+        router.push('/')
     }
-
         const isValid = computed(() => {
-            return nameTask.value !== '' &&
+            return title.value !== '' &&
             setData.value && description.value !== ''
         })
 
     
 
     return{
-        nameTask,
+        title,
         setData,
         description,
-        createTasks,
+        submit,
         isValid
       }
     },
