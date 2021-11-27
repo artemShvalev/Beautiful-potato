@@ -1,5 +1,5 @@
 <template class="mb-10">
-<h1 v-if="tasks.length === 0" class="text-black text-center mt-10 text-3xl font-noTasks">Задач пока нет 😉</h1>
+<h1 v-if="tasks.length === 0" class="text-black text-center mt-10 text-3xl font-noTasks">Задач пока нет 😉( "Create task")</h1>
 <template v-else>
   <h3 class="text-green-300 text-center my-10 text-3xl font-noTasks">Всего активных задач: {{ activeTasksCount }}</h3>
   <div class="max-w flex justify-center items-center lg:h-screen flex-wrap mx-auto  lg:my-0">
@@ -11,7 +11,8 @@
 
       <p class="text-green-600 font-bold mb-2 lg:pt-0">{{new Date(task.setData).toLocaleDateString()}}</p>
       <h2 class="mb-2">Description:</h2>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, unde quam itaque fugit nisi, molestiae molestias illo quia laudantium perferendis tenetur autem ex aspernatur! Distinctio quae ad architecto qui magni.
+      <p>
+        {{task.description}}
       </p>
 
       <button class="bg-green-600 text-green-100 w-1/3 h-10 my-5 rounded-sm brightness-200" @click="open(task.id)">Посмотреть</button>

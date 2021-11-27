@@ -15,7 +15,7 @@
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                         <label class="font-semibold leading-none">Set Data</label>
-                        <input  v-model="setData" type="date">
+                        <input  v-model="setData" type="date" class="text-center font-nav leading-none text-gray-900 p-3 focus:outline-none focus:border-green-300 mt-4 bg-white-100 border rounded border-gray-300">
                     </div>
                     
                 </div>
