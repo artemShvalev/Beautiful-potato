@@ -1,24 +1,11 @@
-# minii-freelance
+# Beautiful Potate
 
-## Project setup
+## Project info
 ```
-npm install
+This "delightful" app serves as a planner of your to-dos
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Stack
+|vue3/
+vuex/
+vue-router/
+tailwindCss|

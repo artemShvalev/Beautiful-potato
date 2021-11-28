@@ -9,7 +9,7 @@ props: {
   type: {
     type: String,
     validator(value){
-      return ['Active', 'Success', 'Pending', 'cancelled'].includes(value)
+      return ['active', 'Success', 'Pending', 'cancelled'].includes(value)
     }
   }
 },
