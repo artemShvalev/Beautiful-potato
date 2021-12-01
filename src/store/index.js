@@ -5,7 +5,6 @@ export default createStore({
     return {
       isShowModal: false,
       tasks: JSON.parse(localStorage.getItem("my-tasks")) ?? [],
-      theme: JSON.parse(localStorage.getItem("theme")) ?? [],
     };
   },
   mutations: {
@@ -23,16 +22,12 @@ export default createStore({
       state.tasks[findIndex] = task;
       localStorage.setItem("my-tasks", JSON.stringify(state.tasks));
     },
-    changeThems() {
-      
-     }
   },
   actions: {
     createTask({ commit }, task) {
       if (task.setData < new Date()) {
         task.status = "cancelled";
       }
-      console.log(task);
       commit("createTask", task);
     },
     changeTask({ commit }, task) {
