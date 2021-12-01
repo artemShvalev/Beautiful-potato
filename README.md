@@ -1,4 +1,4 @@
-# Beautiful Potate
+# Beautiful Potato
 
 ## Project info
 ```
