@@ -1,32 +1,32 @@
 <template>
   <div class="container w-full mx-auto">
-    <div class="bg-gradient-to-b from-green-800 to-grey-400 h-96 mt-5"></div>
+    <div class="bg-gradient-to-b from-green-800 to-grey-400 h-96 mt-5 dark:bg-gray-to-b dark:from-purple-700"></div>
     <div class="mx-auto  sm:px-6 lg:px-8 mb-5">
-        <div class="bg-white w-full shadow rounded p-8 sm:p-12 -mt-72">
-            <p class="text-3xl font-bold leading-7 text-center">Create new Task</p>
+        <div class="bg-white w-full shadow rounded p-8 sm:p-12 -mt-72 dark:bg-gray-100">
+            <p class="text-3xl font-bold leading-7 text-center dark:text-indigo-400">Create new Task</p>
             <form @submit.prevent="submit">
                 <div class="md:flex items-center mt-12">
                     <div class="w-full flex flex-col">
-                        <label class="font-nav leading-none">How u be name this task</label>
+                        <label class="font-nav leading-none dark:text-green-500 dark:text-2xl">How u be name this task?</label>
         
-                        <input type="text" v-model="title" class="leading-none text-gray-900 p-3 focus:outline-none focus:border-green-300 mt-4 bg-white-100 border rounded border-gray-300" />
+                        <input type="text" v-model="title" class="leading-none text-gray-900 p-3 focus:outline-none focus:border-green-300 mt-4 bg-white-100 border rounded border-gray-300 font-nav" />
                     </div>
                 </div>
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
-                        <label class="font-semibold leading-none">Set Data</label>
+                        <label class="font-semibold leading-none dark:text-green-500 dark:text-2xl">Set Data</label>
                         <input  v-model="setData" type="date" class="text-center font-nav leading-none text-gray-900 p-3 focus:outline-none focus:border-green-300 mt-4 bg-white-100 border rounded border-gray-300">
                     </div>
                     
                 </div>
                 <div>
                     <div class="w-full flex flex-col mt-8">
-                        <label class="font-semibold leading-none">Message</label>
-                        <textarea v-model="description" type="text" class="h-40 text-base leading-none text-grey-900 p-3 focus:oultine-none focus:border-green-300 mt-4 bg-white-100 border rounded border-gray-300"></textarea>
+                        <label class="font-semibold leading-none dark:text-green-500 dark:text-2xl">Message</label>
+                        <textarea v-model="description" type="text" class="h-40 text-base leading-none text-grey-900 p-3 focus:border-green-300 mt-4 bg-white-100 border rounded border-gray-300"></textarea>
                     </div>
                 </div>
                 <div class="flex items-center justify-center w-full">
-                    <button  :disabled="!isValid" class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-purple-500 rounded hover:bg-green-600 focus:ring-6 focus:ring-offset-2 focus:ring-white-700 focus:outline-none">
+                    <button  :disabled="!isValid" class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-purple-500 rounded hover:bg-green-600 focus:ring-6 focus:ring-offset-2 focus:ring-white-700 focus:outline-none dark:text-2xl dark:bg-indigo-400 dark:hover:bg-green-400">
                         Create!
                     </button>
                 </div>

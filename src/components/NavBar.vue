@@ -1,12 +1,10 @@
 <template>
 <div class="
- container
  m-0
  p-0
  h-16
  bg-green-600
- text-green-50 
- rounded 
+ text-green-50
  mx-auto 
  font-nav 
  flex 
@@ -45,20 +43,19 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   data() {
     return {
-      getApp: document.getElementById("#app"),
       show: true,
     };
   },
   methods: {
-    addClass() {
-      this.getApp = document.documentElement.classList.add("dark");
-    },
-    removeClass() {
-      this.getApp = document.documentElement.classList.remove("dark");
-    },
+    ...mapMutations([
+      'addClass',
+      'removeClass'
+    ])
   },
 };
 </script>

@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 export default createStore({
   state() {
     return {
+      getApp: document.getElementById("#app"),
       isShowModal: false,
       tasks: JSON.parse(localStorage.getItem("my-tasks")) ?? [],
     };
@@ -21,7 +22,14 @@ export default createStore({
       const findIndex = state.tasks.splice((t) => t.id === task.id);
       state.tasks[findIndex] = task;
       localStorage.setItem("my-tasks", JSON.stringify(state.tasks));
+
     },
+    addClass(state) {
+      state.getApp = document.documentElement.classList.add("dark");
+    },
+    removeClass(state) {
+      state.getApp = document.documentElement.classList.remove("dark");
+    }
   },
   actions: {
     createTask({ commit }, task) {

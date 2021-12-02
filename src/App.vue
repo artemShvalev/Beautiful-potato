@@ -6,11 +6,9 @@
 <script>
 import NavBar from "./components/NavBar.vue";
 export default {
-  name: 'root-component',
+  name: "root-component",
   components: {
-    NavBar
+    NavBar,
   },
 };
-
-
 </script>
