@@ -1,5 +1,5 @@
 <template>
-<h1 v-if="tasks.length === 0" class="text-black text-center py-5 text-3xl font-noTasks dark:text-indigo-600">Задач нет 😎</h1>
+  <h1 v-if="tasks.length === 0" class="text-black text-center dark:bg-black text-3xl font-noTasks dark:text-indigo-600">Задач нет 😎</h1>
 
   <div class="flex justify-center items-center lg:h-screen flex-wrap mx-auto  lg:my-0 dark:bg-black">
 	<div class="w-full lg:w-3/5 rounded lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75  lg:mx-0">
@@ -16,21 +16,6 @@
 
       <button 
       class="
-      bg-blue-600 
-      dark:bg-blue-900
-      text-green-100 
-      w-1/3 
-      h-10 
-      my-5 
-      rounded-sm 
-      brightness-200" 
-      @click="openModal"
-      >
-      Edit task✏️
-      </button>
-
-      <button 
-      class="
       bg-red-600
       dark:bg-pink-800
       text-green-100 
@@ -40,7 +25,7 @@
       mx-7
       rounded-sm 
       brightness-200" 
-      @click="del"
+      @click="del(id)"
       >
       Delete task 🧨
       </button>
@@ -58,6 +43,7 @@ export default {
   components: {
     statusBages,
   },
+  props: ['id'],
   setup() {
     const store = useStore();
 

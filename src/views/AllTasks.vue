@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {computed, watchEffect} from 'vue'
+import {computed} from 'vue'
 import {useStore} from 'vuex'
 import TheCard from '../components/TheCard.vue'
 import statusBages from '../components/statusBages.vue'
@@ -30,24 +30,17 @@ export default{
     TheCard,
     statusBages
     },
-  props: ['id'],
-  setup(props) {
+  setup() {
     const store = useStore();
-    const task = computed(() => store.getters.taskById(idStore))
+    const task = computed(() => store.getters.taskById())
 
     const setStatus = status => {
       const updated = {...task.value, status}
         store.dispatch('changeTask', updated)
     }
 
-      const idStore = watchEffect(() => {
-      console.log(props.id)
-    })
-
-
     return{
       task,
-      idStore,
       setStatus,
     }
   }

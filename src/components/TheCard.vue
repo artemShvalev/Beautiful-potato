@@ -1,12 +1,12 @@
 <template>
 <h1 v-if="tasks.length === 0" class="text-black text-center mt-4 text-3xl font-noTasks dark:text-indigo-300">Задач пока нет 😉(Нажми "Create task")</h1>
-<template v-else class="mb-5">
+<template v-else>
   <div>
       <h3 class="pt-5 text-green-300 text-center  text-3xl font-noTasks dark:text-indigo-300 dark:bg-black">Всего активных задач: {{ activeTasksCount }}</h3>
   </div>
-  <div class="rounded max-w mt-5 flex justify-center items-center lg:h-screen flex-wrap mx-auto  lg:my-0 dark:bg-black">
-	<div class="w-full lg:w-3/5 rounded lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75  lg:mx-0">
-	<div class="p-4 md:p-12 text-center lg:text-left dark:bg-purple-100" v-for="task in tasks" :key="task.id">
+  <div class="rounded max-w mt-5 mb-10 flex justify-center items-center lg:h-screen flex-wrap mx-auto  lg:my-0 dark:bg-black">
+	<div class="w-full lg:w-3/5 rounded lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75  lg:mx-0 mb-10">
+	<div class="rounded p-4 md:p-12 text-center lg:text-left dark:bg-purple-100 mb-10" v-for="task in tasks" :key="task.id">
 			<h1 class="text-3xl font-bold mb-2 lg:pt-0 dark:text-indigo-600">{{task.title}}</h1>
 
       <statusBages :type="task.status"/>
